@@ -34,6 +34,9 @@ Including an example of how to use your role (for instance, with variables passe
   roles:
      - { role: danrabinowitz.openvpn_for_access, sudo: yes }
 
+See a full test repo here:
+https://github.com/danrabinowitz/openvpn_test
+
 License
 -------
 
