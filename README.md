@@ -6,33 +6,41 @@ This role provisions an OpenVPN server. This server is NOT designed for routing 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+openvpn_pki_path: "/etc/openvpn/pki"
+openvpn_protocol: 'udp'
+openvpn_port: 1194
+openvpn_subnet: 10.3.1.0
+openvpn_netmask: 255.255.255.0
+openvpn_client_remote_ip: "{{ openvpn_server_ip }}"
+openvpn_cert_file: "keys/{{ openvpn_name }}_client_01.crt"
+openvpn_key_file: "keys/{{ openvpn_name }}_client_01.key"
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      roles:
-         - { role: danrabinowitz.openvpn_for_access, sudo: yes }
+- hosts: servers
+  roles:
+     - { role: danrabinowitz.openvpn_for_access, sudo: yes }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+See:
+https://github.com/danrabinowitz/openvpn_for_access
