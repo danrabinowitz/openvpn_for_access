@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This role provisions an OpenVPN server. This server is NOT designed for routing all traffic from the client. It is for granting access to the server, so that ssh (for example) can be allowed ONLY via OpenVPN.
 
 Requirements
 ------------
@@ -25,7 +25,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: danrabinowitz.openvpn_for_access, sudo: yes }
 
 License
 -------
