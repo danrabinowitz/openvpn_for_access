@@ -22,6 +22,9 @@
 - name: Install certified
   apt: name=certified
 
+- name: Install git
+  apt: name=git
+
 - name: Create git repo for pki
   shell: 'git init {{ openvpn_pki_path }} && cd {{ openvpn_pki_path }} && git config user.email "user@host.com" && git config user.name "user" creates={{ openvpn_pki_path}}/.git'
 
