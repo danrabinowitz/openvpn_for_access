@@ -9,8 +9,8 @@
 - name: ensure log dir exists 
   file: path=/var/log/openvpn state=directory
 
-- name: ensure /opt/easynat exists
-  file: path=/opt/easynat state=directory
+# - name: ensure /opt/easynat exists
+#   file: path=/opt/easynat state=directory
 
 # PKI
 - name: add apt key
@@ -74,17 +74,17 @@
   notify:
     - restart openvpn
 
-- name: set network in easynat rule file
-  action: lineinfile dest=/opt/easynat/rules.cnf 
-                     regexp="{{ openvpn_subnet }}" 
-                     line="{{ openvpn_subnet }}/{{ openvpn_netmask }}" 
-                     state=present
-                     create=yes
-  notify:
-    - setup nat rules
+# - name: set network in easynat rule file
+#   action: lineinfile dest=/opt/easynat/rules.cnf 
+#                      regexp="{{ openvpn_subnet }}" 
+#                      line="{{ openvpn_subnet }}/{{ openvpn_netmask }}" 
+#                      state=present
+#                      create=yes
+#   notify:
+#     - setup nat rules
 
 - name: Create client conf (to local file)
   sudo: no
   local_action: template src="tls-client.conf" dest=/tmp/{{ openvpn_name }}_client_01.conf
 
-- include: nat.yml
+# - include: nat.yml
