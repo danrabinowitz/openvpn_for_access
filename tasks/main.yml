@@ -71,8 +71,9 @@
 
 - name: Create server config files
   template: src=tls-server.conf dest=/etc/openvpn/{{ openvpn_name }}.conf
-  notify:
-    - restart openvpn
+
+- name: restart openvpn
+  action: service name=openvpn state=restarted
 
 # - name: set network in easynat rule file
 #   action: lineinfile dest=/opt/easynat/rules.cnf 
