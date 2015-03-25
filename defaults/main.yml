@@ -5,6 +5,6 @@ openvpn_protocol: 'udp'
 openvpn_port: 1194
 openvpn_subnet: 10.3.1.0
 openvpn_netmask: 255.255.255.0
-openvpn_client_remote_ip: "{{ openvpn_server_ip }}"
+openvpn_client_remote_ip: "{{ server_public_ip }}"
 openvpn_cert_file: "keys/{{ openvpn_name }}_client_01.crt"
 openvpn_key_file: "keys/{{ openvpn_name }}_client_01.key"
