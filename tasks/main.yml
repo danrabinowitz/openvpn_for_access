@@ -85,7 +85,7 @@
 #     - setup nat rules
 
 - name: Get public ip
-  shell: dig +short myip.opendns.com @resolver1.opendns.com
+  shell: curl ipecho.net/plain
   register: server_public_ip
 
 - name: Create client conf (to local file)
