@@ -84,9 +84,17 @@
 #   notify:
 #     - setup nat rules
 
+
+
+- name: Copy get_public_ip.sh
+  copy: src=get_public_ip.sh dest=/tmp/ owner=root group=root mode=0755
+
 - name: Get public ip
-  shell: curl ipecho.net/plain
+  command: /tmp/get_public_ip.sh {{ possible_public_ips }}
   register: server_public_ip
+
+- debug: var=server_public_ip
+
 
 - name: Create client conf (to local file)
   sudo: no
