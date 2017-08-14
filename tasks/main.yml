@@ -94,7 +94,7 @@
   register: server_public_ip
 
 - name: Create client conf (to local file)
-  sudo: no
+  # sudo: no
   local_action: template src="tls-client.conf" dest=/tmp/{{ openvpn_name }}_client_01.conf
 
 # - include: nat.yml
